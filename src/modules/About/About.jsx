@@ -56,7 +56,7 @@ export default function About() {
           <div className={style.visual}>
             <div className={style.frame}>
               <Image
-                src="/photo/photo-valera.png"
+                src="/photo/photo-valera.jpg"
                 alt="Валерій — провідник трансформаційної гри Ліла"
                 fill
                 sizes="(max-width: 768px) 100vw, 400px"
