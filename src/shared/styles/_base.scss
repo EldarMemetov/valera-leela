@@ -1,0 +1,82 @@
+@use "shared/styles/variables" as *;
+
+:root {
+  font-weight: 400;
+  color: $color-text; // было: #fff
+  background: $color-bg; // было: black
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --font-family: var(--font-manrope), sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; // плавный скролл по якорям
+}
+
+body {
+  font-family: $primary-font-family;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+dd,
+dl {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: lightgray;
+}
+
+// отступ под фиксированный хедер
+main {
+  padding-top: $header-height;
+}
+
+// чтобы якоря секций не прятались под хедер
+section[id] {
+  scroll-margin-top: $header-height;
+}

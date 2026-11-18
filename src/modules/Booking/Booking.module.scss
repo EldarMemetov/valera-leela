@@ -1,0 +1,138 @@
+.booking {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-dark;
+  border-top: 1px solid rgba(251, 248, 243, 0.1);
+
+  // тёплое свечение по центру
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70vw;
+    height: 70vw;
+    max-width: 720px;
+    max-height: 720px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle,
+      rgba(200, 109, 81, 0.16) 0%,
+      rgba(217, 155, 54, 0.08) 40%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 0;
+
+  @include media(tablet) {
+    padding: 112px 0;
+  }
+
+  @include media(desktop) {
+    padding: 140px 0;
+  }
+}
+
+.overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: $primary-font-family;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $color-saffron;
+  margin-bottom: 20px;
+
+  @include font(12, 16);
+
+  &::before,
+  &::after {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background-color: $color-saffron;
+  }
+}
+
+.title {
+  font-family: $secondary-font-family;
+  font-weight: 500;
+  color: #fbf8f3;
+  max-width: 720px;
+  margin-bottom: 24px;
+
+  @include font(32, 40);
+
+  @include media(tablet) {
+    @include font(44, 52);
+    margin-bottom: 28px;
+  }
+
+  @include media(desktop) {
+    @include font(56, 64);
+  }
+}
+
+.titleAccent {
+  font-style: italic;
+  color: $color-saffron;
+}
+
+.text {
+  font-family: $primary-font-family;
+  color: rgba(251, 248, 243, 0.75);
+  max-width: 520px;
+  margin-bottom: 40px;
+
+  @include font(17, 28);
+
+  @include media(tablet) {
+    @include font(18, 30);
+    margin-bottom: 48px;
+  }
+}
+
+.telegramButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: $color-terracotta;
+  border-radius: 999px;
+  padding: 18px 40px;
+  box-shadow: 0 8px 32px rgba(200, 109, 81, 0.4);
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+
+  @include font(17, 22);
+
+  &:hover {
+    background-color: $color-terracotta-hover;
+    box-shadow: 0 12px 40px rgba(200, 109, 81, 0.55);
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.telegramIcon {
+  width: 22px;
+  height: 22px;
+}

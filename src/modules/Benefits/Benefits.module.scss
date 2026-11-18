@@ -1,0 +1,222 @@
+.benefits {
+  position: relative;
+  background-color: $color-bg;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(
+      to bottom,
+      rgba(243, 237, 226, 0.8) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 72px 0;
+
+  @include media(tablet) {
+    gap: 64px;
+    padding: 96px 0;
+  }
+
+  @include media(desktop) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 96px;
+    padding: 120px 0;
+  }
+}
+
+// ---------- левая часть: заголовок (липкий) ----------
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include media(desktop) {
+    flex-shrink: 0;
+    width: 420px;
+    position: sticky;
+    top: calc($header-height + 40px);
+  }
+}
+
+.overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: $primary-font-family;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $color-terracotta;
+  margin-bottom: 20px;
+
+  @include font(12, 16);
+
+  &::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background-color: $color-terracotta;
+  }
+}
+
+.title {
+  font-family: $secondary-font-family;
+  font-weight: 500;
+  color: $color-text;
+  margin-bottom: 24px;
+
+  @include font(30, 38);
+
+  @include media(tablet) {
+    @include font(40, 48);
+    margin-bottom: 28px;
+  }
+
+  @include media(desktop) {
+    @include font(46, 54);
+  }
+}
+
+.titleAccent {
+  font-style: italic;
+  color: $color-terracotta;
+}
+
+.lead {
+  font-family: $primary-font-family;
+  color: $color-text-secondary;
+  margin-bottom: 48px;
+
+  @include font(17, 28);
+
+  @include media(tablet) {
+    @include font(18, 30);
+  }
+}
+
+// финальная мысль — плашка
+.conclusion {
+  display: flex;
+  gap: 20px;
+  padding: 24px 28px;
+  background-color: $color-bg-secondary;
+  border-radius: 16px;
+  border: 1px solid rgba(217, 155, 54, 0.25);
+
+  p {
+    font-family: $secondary-font-family;
+    font-style: italic;
+    font-weight: 500;
+    color: $color-text;
+
+    @include font(18, 28);
+
+    @include media(tablet) {
+      @include font(20, 30);
+    }
+  }
+}
+
+.conclusionLine {
+  width: 3px;
+  border-radius: 2px;
+  background-color: $color-terracotta;
+  flex-shrink: 0;
+}
+
+// ---------- правая часть: список ----------
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid $color-border;
+  transition:
+    transform 0.3s ease,
+    padding-left 0.3s ease;
+
+  &:first-child {
+    border-top: 1px solid $color-border;
+  }
+
+  &:hover {
+    transform: translateX(8px);
+
+    .itemDot {
+      transform: scale(1.6);
+      background-color: $color-terracotta;
+    }
+
+    .itemText {
+      color: $color-text;
+    }
+  }
+
+  @include media(tablet) {
+    gap: 28px;
+    padding: 32px 0;
+  }
+}
+
+.itemNumber {
+  font-family: $secondary-font-family;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(36, 33, 29, 0.25);
+  flex-shrink: 0;
+  min-width: 44px;
+
+  @include font(28, 32);
+
+  @include media(tablet) {
+    @include font(36, 40);
+    min-width: 56px;
+  }
+}
+
+.itemDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $color-saffron;
+  flex-shrink: 0;
+  transform: translateY(-2px);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.itemText {
+  font-family: $primary-font-family;
+  color: $color-text-secondary;
+  transition: color 0.3s ease;
+
+  @include font(17, 28);
+
+  @include media(tablet) {
+    @include font(19, 31);
+  }
+}
