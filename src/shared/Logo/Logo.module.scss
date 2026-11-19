@@ -1,25 +1,22 @@
 .logo {
-  font-family: $secondary-font-family;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: $color-text;
-  text-decoration: none;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
   position: relative;
   z-index: 110;
-  transition: color 0.2s ease;
-
-  @include font(28, 32);
+  line-height: 0;
+  transition: opacity 0.2s ease;
 
   &:hover {
-    color: $color-terracotta;
-  }
-
-  @include media(desktop) {
-    @include font(32, 36);
+    opacity: 0.8;
   }
 }
 
-.dot {
-  color: $color-terracotta;
+.image {
+  display: block;
+  width: auto;
+  height: 40px;
+
+  @include media(desktop) {
+    height: 48px;
+  }
 }
