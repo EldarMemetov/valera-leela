@@ -59,7 +59,8 @@ export default function About() {
                 src="/photo/photo-valera.jpg"
                 alt="Валерій — провідник трансформаційної гри Ліла"
                 fill
-                sizes="(max-width: 768px) 100vw, 400px"
+                quality={70}
+                sizes="(max-width: 768px) 90vw, 400px"
                 className={style.photo}
               />
             </div>

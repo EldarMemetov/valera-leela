@@ -17,7 +17,6 @@ const steps = [
 export default function Hero() {
   const heroRef = useRef(null);
 
-  // параллакс + spotlight + 3D-наклон артефакта через CSS-переменные
   const handleMouseMove = (e) => {
     const el = heroRef.current;
     if (!el) return;
@@ -42,28 +41,25 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       data-testid="hero-section"
     >
-      {/* глубина: фото */}
       <div className={style.background}>
         <Image
           src="/photo/hero.jpeg"
           alt=""
           fill
           priority
+          quality={60}
           sizes="100vw"
           className={style.backgroundImage}
         />
         <div className={style.overlay} />
       </div>
 
-      {/* свет, следующий за курсором */}
       <div className={style.spotlight} />
 
-      {/* гигантское контурное слово на заднем плане */}
       <span className={style.ghostWord} aria-hidden="true">
         ЛІЛА
       </span>
 
-      {/* вертикальная подпись на краю */}
       <span className={style.edgeLabel} aria-hidden="true">
         гра усвідомлення · 72 клітини
       </span>
@@ -213,7 +209,6 @@ export default function Hero() {
         </div>
       </Container>
 
-      {/* плёночное зерно поверх всего */}
       <div className={style.grain} aria-hidden="true" />
     </section>
   );
