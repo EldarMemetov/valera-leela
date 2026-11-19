@@ -188,6 +188,14 @@ export default function Hero() {
                     </li>
                   ))}
                 </ol>
+                <button
+                  type="button"
+                  className={style.artifactLink}
+                  onClick={() => scrollTo("#how-it-works")}
+                  data-testid="hero-steps-link"
+                >
+                  Докладніше про кроки
+                </button>
                 <div className={style.artifactGlare} />
               </div>
             </aside>

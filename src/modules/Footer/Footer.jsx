@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Logo from "@/shared/Logo/Logo";
 import NavMenu from "@/modules/Header/NavMenu/NavMenu";
 import {
   TELEGRAM_URL,
@@ -40,7 +39,6 @@ function Footer() {
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Logo />
             <p className={styles.tagline}>
               Трансформаційна гра, щоб глибше зрозуміти себе, дослідити свій
               запит і визначити конкретні кроки до змін.
@@ -89,13 +87,6 @@ function Footer() {
               data-testid="footer-link-privacy"
             >
               Політика конфіденційності
-            </Link>
-            <Link
-              href="/oferta"
-              className={styles.legalLink}
-              data-testid="footer-link-oferta"
-            >
-              Публічна оферта
             </Link>
           </div>
         </div>
