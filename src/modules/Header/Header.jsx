@@ -20,33 +20,35 @@ function Header() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className={styles.header} data-testid="header">
-      <div className={styles.container}>
-        <Logo />
+    <>
+      <header className={styles.header} data-testid="header">
+        <div className={styles.container}>
+          <Logo />
 
-        <NavMenu className={styles.desktopNav} onLinkClick={closeMenu} />
+          <NavMenu className={styles.desktopNav} onLinkClick={closeMenu} />
 
-        <div className={styles.actions}>
-          <ScrollButton className={styles.cta} />
-          <button
-            type="button"
-            className={`${styles.burger} ${isOpen ? styles.burgerOpen : ""}`}
-            onClick={() => setIsOpen((prev) => !prev)}
-            aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
-            aria-expanded={isOpen}
-            data-testid="mobile-menu-trigger"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+          <div className={styles.actions}>
+            <ScrollButton className={styles.cta} />
+            <button
+              type="button"
+              className={`${styles.burger} ${isOpen ? styles.burgerOpen : ""}`}
+              onClick={() => setIsOpen((prev) => !prev)}
+              aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
+              aria-expanded={isOpen}
+              data-testid="mobile-menu-trigger"
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* мобильное выезжающее меню */}
       <div
         className={`${styles.overlay} ${isOpen ? styles.overlayVisible : ""}`}
         onClick={closeMenu}
+        data-testid="mobile-menu-overlay"
       />
       <div
         className={`${styles.drawer} ${isOpen ? styles.drawerOpen : ""}`}
@@ -55,7 +57,7 @@ function Header() {
         <NavMenu className={styles.drawerNav} onLinkClick={closeMenu} />
         <ScrollButton className={styles.drawerCta} onClick={closeMenu} />
       </div>
-    </header>
+    </>
   );
 }
 

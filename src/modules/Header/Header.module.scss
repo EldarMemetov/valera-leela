@@ -29,7 +29,6 @@
   }
 }
 
-// десктопная навигация скрыта на мобилке
 .desktopNav {
   display: none;
 
@@ -54,7 +53,6 @@
   }
 }
 
-// бургер — только на мобилке
 .burger {
   display: flex;
   flex-direction: column;
@@ -66,8 +64,6 @@
   background: none;
   border: none;
   cursor: pointer;
-  position: relative;
-  z-index: 110;
 
   span {
     display: block;
@@ -85,7 +81,6 @@
   }
 }
 
-// анимация бургера в крестик
 .burgerOpen {
   span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
@@ -98,10 +93,11 @@
   }
 }
 
-// затемнение фона под меню
+// z-index ниже шапки (100), чтобы шапка и бургер оставались поверх
 .overlay {
   position: fixed;
   inset: 0;
+  z-index: 90;
   background-color: rgba(36, 33, 29, 0.4);
   opacity: 0;
   pointer-events: none;
@@ -117,12 +113,12 @@
   pointer-events: auto;
 }
 
-// выезжающая панель справа
 .drawer {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
+  z-index: 95;
   width: min(320px, 85vw);
   background-color: $color-bg;
   border-left: 1px solid $color-border;
@@ -132,7 +128,10 @@
   flex-direction: column;
   gap: 32px;
   transform: translateX(100%);
-  transition: transform 0.35s ease;
+  visibility: hidden;
+  transition:
+    transform 0.35s ease,
+    visibility 0s linear 0.35s;
 
   @include media(tablet) {
     display: none;
@@ -141,6 +140,8 @@
 
 .drawerOpen {
   transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.35s ease;
 }
 
 .drawerCta {

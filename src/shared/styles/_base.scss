@@ -2,8 +2,8 @@
 
 :root {
   font-weight: 400;
-  color: $color-text; // было: #fff
-  background: $color-bg; // было: black
+  color: $color-text;
+  background: $color-bg;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,7 +12,7 @@
 
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth; // плавный скролл по якорям
+  scroll-behavior: smooth;
 }
 
 body {
@@ -71,12 +71,10 @@ a:focus {
   background-color: lightgray;
 }
 
-// отступ под фиксированный хедер
 main {
   padding-top: $header-height;
 }
 
-// чтобы якоря секций не прятались под хедер
 section[id] {
   scroll-margin-top: $header-height;
 }
