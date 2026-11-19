@@ -17,7 +17,6 @@ const themes = [
 export default function WhatIsLeela() {
   const sectionRef = useRef(null);
 
-  // параллакс фото от мыши через CSS-переменные
   const handleMouseMove = (e) => {
     const el = sectionRef.current;
     if (!el) return;
@@ -109,14 +108,42 @@ export default function WhatIsLeela() {
 
             <div className={style.symbolism} data-testid="leela-symbolism">
               <div className={style.symbolCard}>
-                <span className={style.symbolIcon}>↗</span>
+                <span className={style.symbolIcon} aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M8 7h9v9" />
+                  </svg>
+                </span>
                 <div>
                   <h3 className={style.symbolTitle}>Стріли</h3>
                   <p className={style.symbolText}>ведуть угору</p>
                 </div>
               </div>
               <div className={style.symbolCard}>
-                <span className={style.symbolIcon}>↘</span>
+                <span className={style.symbolIcon} aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 7l10 10" />
+                    <path d="M17 8v9H8" />
+                  </svg>
+                </span>
                 <div>
                   <h3 className={style.symbolTitle}>Змії</h3>
                   <p className={style.symbolText}>повертають назад</p>
