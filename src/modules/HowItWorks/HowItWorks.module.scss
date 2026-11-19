@@ -1,0 +1,265 @@
+.how {
+  position: relative;
+  background-color: $color-bg-secondary;
+  overflow: hidden;
+
+  // тёплое свечение в углу
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    max-width: 640px;
+    max-height: 640px;
+    background: radial-gradient(
+      circle,
+      rgba(217, 155, 54, 0.14) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+}
+
+.inner {
+  position: relative;
+  padding: 72px 0;
+
+  @include media(tablet) {
+    padding: 96px 0;
+  }
+
+  @include media(desktop) {
+    padding: 120px 0;
+  }
+}
+
+// ---------- заголовок ----------
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 48px;
+
+  @include media(tablet) {
+    margin-bottom: 64px;
+  }
+
+  @include media(desktop) {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+}
+
+.overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: $primary-font-family;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $color-terracotta;
+  margin-bottom: 20px;
+
+  @include font(12, 16);
+
+  &::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background-color: $color-terracotta;
+  }
+}
+
+.title {
+  font-family: $secondary-font-family;
+  font-weight: 500;
+  color: $color-text;
+
+  @include font(30, 38);
+
+  @include media(tablet) {
+    @include font(40, 48);
+  }
+
+  @include media(desktop) {
+    @include font(46, 54);
+  }
+}
+
+.titleAccent {
+  font-style: italic;
+  color: $color-terracotta;
+}
+
+// ---------- таймлайн ----------
+
+.list {
+  --gap: 24px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+
+  @include media(desktop) {
+    --gap: 40px;
+  }
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 20px;
+
+  @include media(tablet) {
+    gap: 28px;
+  }
+
+  @include media(desktop) {
+    grid-template-columns: 1fr 64px 1fr;
+    gap: 48px;
+  }
+
+  // линия от этого маркера до следующего
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 27px;
+    width: 2px;
+    height: calc(100% + var(--gap));
+    border-radius: 2px;
+    background: linear-gradient(
+      to bottom,
+      rgba(217, 155, 54, 0.7),
+      rgba(200, 109, 81, 0.35)
+    );
+
+    @include media(desktop) {
+      top: 32px;
+      left: 50%;
+      transform: translateX(-1px);
+    }
+  }
+
+  &:hover {
+    .card {
+      transform: translateY(-4px);
+      border-color: rgba(217, 155, 54, 0.45);
+      box-shadow: 0 18px 40px rgba(36, 33, 29, 0.1);
+    }
+
+    .marker {
+      background-color: $color-terracotta-hover;
+      border-color: $color-terracotta-hover;
+      color: $color-bg;
+    }
+  }
+
+  // последний шаг — акцентный
+  &:last-child .marker {
+    background-color: $color-dark;
+    border-color: $color-saffron;
+    color: $color-saffron;
+  }
+}
+
+.marker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: $color-bg;
+  border: 1px solid rgba(200, 109, 81, 0.45);
+  // кольцо цвета фона, чтобы скрыть линию за маркером
+  box-shadow: 0 0 0 6px $color-bg-secondary;
+  font-family: $secondary-font-family;
+  font-weight: 600;
+  font-style: italic;
+  color: $color-terracotta-hover;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+
+  @include font(22, 26);
+
+  @include media(desktop) {
+    grid-column: 2;
+    grid-row: 1;
+    width: 64px;
+    height: 64px;
+
+    @include font(26, 30);
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  padding: 24px;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(36, 33, 29, 0.06);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  @include media(tablet) {
+    padding: 28px 32px;
+  }
+
+  @include media(desktop) {
+    grid-row: 1;
+  }
+}
+
+// на десктопе карточки чередуются слева и справа от линии
+@include media(desktop) {
+  .step:nth-child(odd) .card {
+    grid-column: 1;
+    justify-self: end;
+  }
+
+  .step:nth-child(even) .card {
+    grid-column: 3;
+    justify-self: start;
+  }
+}
+
+.stepTitle {
+  font-family: $secondary-font-family;
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: 10px;
+
+  @include font(22, 28);
+
+  @include media(tablet) {
+    @include font(24, 30);
+  }
+}
+
+.stepText {
+  font-family: $primary-font-family;
+  color: $color-text-secondary;
+
+  @include font(16, 26);
+
+  @include media(tablet) {
+    @include font(17, 28);
+  }
+}

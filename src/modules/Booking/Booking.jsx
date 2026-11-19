@@ -1,7 +1,7 @@
 import Container from "../../shared/Container/Container.jsx";
 import style from "./Booking.module.scss";
 
-const TELEGRAM_URL = "https://t.me/username";
+import { TELEGRAM_URL } from "@/shared/constants";
 
 export default function Booking() {
   return (

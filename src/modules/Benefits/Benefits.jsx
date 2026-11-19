@@ -44,6 +44,22 @@ export default function Benefits() {
             </h2>
 
             <p className={style.lead}>У грі ми працюємо над тим, щоб ти:</p>
+          </div>
+
+          <div className={style.right}>
+            <ol className={style.list} data-testid="benefits-list">
+              {benefits.map((item) => (
+                <li
+                  key={item.number}
+                  className={style.item}
+                  data-testid={`benefit-item-${item.number}`}
+                >
+                  <span className={style.itemNumber}>{item.number}</span>
+                  <span className={style.itemDot} />
+                  <p className={style.itemText}>{item.text}</p>
+                </li>
+              ))}
+            </ol>
 
             <div className={style.conclusion} data-testid="benefits-conclusion">
               <span className={style.conclusionLine} />
@@ -53,20 +69,6 @@ export default function Benefits() {
               </p>
             </div>
           </div>
-
-          <ol className={style.list} data-testid="benefits-list">
-            {benefits.map((item) => (
-              <li
-                key={item.number}
-                className={style.item}
-                data-testid={`benefit-item-${item.number}`}
-              >
-                <span className={style.itemNumber}>{item.number}</span>
-                <span className={style.itemDot} />
-                <p className={style.itemText}>{item.text}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </Container>
     </section>

@@ -2,27 +2,34 @@
 import Link from "next/link";
 import Logo from "@/shared/Logo/Logo";
 import NavMenu from "@/modules/Header/NavMenu/NavMenu";
+import {
+  TELEGRAM_URL,
+  INSTAGRAM_URL,
+  PHONE_LABEL,
+  PHONE_HREF,
+  EMAIL,
+} from "@/shared/constants";
 import styles from "./Footer.module.scss";
 
 const contacts = [
   {
-    label: "+380 (99) 000-00-00",
-    href: "tel:+380990000000",
+    label: PHONE_LABEL,
+    href: PHONE_HREF,
     testId: "footer-contact-phone",
   },
   {
-    label: "hello@lila.game",
-    href: "mailto:hello@lila.game",
+    label: EMAIL,
+    href: `mailto:${EMAIL}`,
     testId: "footer-contact-email",
   },
   {
     label: "Telegram",
-    href: "https://t.me/username",
+    href: TELEGRAM_URL,
     testId: "footer-contact-telegram",
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/username",
+    href: INSTAGRAM_URL,
     testId: "footer-contact-instagram",
   },
 ];

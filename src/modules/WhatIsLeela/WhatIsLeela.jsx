@@ -8,7 +8,7 @@ import style from "./WhatIsLeela.module.scss";
 const themes = [
   "бажання",
   "страхи",
-  "прив'язаності",
+  "прив’язаності",
   "радість",
   "вибір",
   "внутрішні опори",
@@ -78,12 +78,13 @@ export default function WhatIsLeela() {
             </p>
 
             <h2 className={style.title} data-testid="leela-title">
-              Гра, у центрі якої — <em className={style.titleAccent}>ти</em>,
-              твоя проблема і твоє життя зараз
+              <em className={style.titleAccent}>«Ліла»</em> — трансформаційна
+              гра з індійської духовної традиції
             </h2>
 
             <p className={style.lead}>
-              «Ліла» — трансформаційна гра з індійської духовної традиції.
+              У центрі гри — ти, твоя проблема і те, що відбувається у твоєму
+              житті зараз.
             </p>
 
             <div className={style.themesBlock} data-testid="leela-themes">
@@ -102,8 +103,7 @@ export default function WhatIsLeela() {
 
             <p className={style.text}>
               Ти кидаєш кубик, рухаєшся полем і досліджуєш ці теми через власну
-              історію. Ця символіка стає приводом подивитися на себе: що
-              підтримує твій рух, а де ти знову повторюєш знайомий сценарій?
+              історію.
             </p>
 
             <div className={style.symbolism} data-testid="leela-symbolism">
@@ -152,7 +152,12 @@ export default function WhatIsLeela() {
             </div>
 
             <p className={style.text}>
-              Я допомагаю тобі розібратися у своїх реакціях, побачити звязки та
+              Ця символіка стає приводом подивитися на себе: що підтримує твій
+              рух, а де ти знову повторюєш знайомий сценарій?
+            </p>
+
+            <p className={style.text}>
+              Я допомагаю тобі розібратися у своїх реакціях, побачити зв’язки та
               сформулювати власні висновки. Разом ми визначаємо конкретні дії, з
               яких ти готовий почати зміни.
             </p>

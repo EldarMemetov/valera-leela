@@ -4,14 +4,14 @@ import { useRef } from "react";
 import Image from "next/image";
 import Container from "../../shared/Container/Container.jsx";
 import style from "./Hero.module.scss";
-
-const TELEGRAM_URL = "https://t.me/username";
+import { TELEGRAM_URL } from "@/shared/constants";
 
 const steps = [
-  { number: "01", text: "Формулюємо твій запит" },
-  { number: "02", text: "Кидаєш кубик, рухаєшся полем" },
-  { number: "03", text: "Досліджуємо те, що відгукується" },
-  { number: "04", text: "Визначаємо конкретні дії" },
+  { number: "01", text: "Визначаємо, що ти хочеш дослідити" },
+  { number: "02", text: "Починаємо гру" },
+  { number: "03", text: "Розбираємо те, що відгукується" },
+  { number: "04", text: "Переходимо до дій" },
+  { number: "05", text: "Збираємо головне" },
 ];
 
 export default function Hero() {
@@ -74,22 +74,26 @@ export default function Hero() {
 
               <h1 className={style.title} data-testid="hero-title">
                 <span className={style.titleLine}>
-                  <span className={style.titleLineInner}>Ліла — гра,</span>
-                </span>
-                <span className={style.titleLine}>
                   <span className={style.titleLineInner}>
-                    щоб <em className={style.titleAccent}>глибше</em>
+                    Ліла — трансформаційна гра,
                   </span>
                 </span>
                 <span className={style.titleLine}>
-                  <span className={style.titleLineInner}>зрозуміти себе</span>
+                  <span className={style.titleLineInner}>
+                    щоб <em className={style.titleAccent}>глибше</em> зрозуміти
+                    себе,
+                  </span>
+                </span>
+                <span className={style.titleLine}>
+                  <span className={style.titleLineInner}>
+                    дослідити свій запит і визначити конкретні кроки до змін.
+                  </span>
                 </span>
               </h1>
 
               <p className={style.description} data-testid="hero-description">
-                Досліди свій запит і визнач конкретні кроки до змін. Під час гри
-                ми разом розглянемо твою ситуацію та пропишемо дії, з яких ти
-                готовий почати.
+                Під час гри ми разом розглянемо твою ситуацію та пропишемо дії,
+                з яких ти готовий почати.
               </p>
 
               <div className={style.actions}>
@@ -122,7 +126,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* артефакт: 3D-карточка игры */}
             <aside className={style.artifact} data-testid="hero-steps-card">
               <div className={style.artifactCard}>
                 <div className={style.artifactHeader}>

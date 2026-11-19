@@ -40,7 +40,6 @@
 .brand {
   max-width: 340px;
 
-  // логотип в футере — светлый
   a {
     color: #fbf8f3;
 
@@ -77,11 +76,11 @@
   @include font(12, 16);
 }
 
-// переиспользуем NavMenu, но в футере он всегда колонкой
 .nav {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: flex-start;
 
   a {
     color: rgba(251, 248, 243, 0.85);

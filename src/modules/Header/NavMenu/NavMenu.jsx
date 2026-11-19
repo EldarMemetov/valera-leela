@@ -13,10 +13,19 @@ const links = [
     testId: "nav-link-how-it-works",
   },
   { label: "Формати", href: "#pricing", testId: "nav-link-pricing" },
-  { label: "Запис на гру", href: "#booking", testId: "nav-link-booking" },
+  {
+    label: "Запис на гру",
+    href: "#booking",
+    testId: "nav-link-booking",
+    isBooking: true,
+  },
 ];
 
-function NavMenu({ className = "", onLinkClick }) {
+function NavMenu({ className = "", onLinkClick, withBooking = true }) {
+  const visibleLinks = withBooking
+    ? links
+    : links.filter((link) => !link.isBooking);
+
   const handleClick = (e, href) => {
     e.preventDefault();
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -25,7 +34,7 @@ function NavMenu({ className = "", onLinkClick }) {
 
   return (
     <nav className={`${styles.nav} ${className}`}>
-      {links.map((link) => (
+      {visibleLinks.map((link) => (
         <a
           key={link.href}
           href={link.href}

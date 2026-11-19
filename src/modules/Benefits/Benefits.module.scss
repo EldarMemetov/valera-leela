@@ -101,7 +101,7 @@
 .lead {
   font-family: $primary-font-family;
   color: $color-text-secondary;
-  margin-bottom: 48px;
+  margin-bottom: 0;
 
   @include font(17, 28);
 
@@ -110,42 +110,17 @@
   }
 }
 
-// финальная мысль — плашка
-.conclusion {
+// ---------- правая часть: список + вывод ----------
+
+.right {
   display: flex;
-  gap: 20px;
-  padding: 24px 28px;
-  background-color: $color-bg-secondary;
-  border-radius: 16px;
-  border: 1px solid rgba(217, 155, 54, 0.25);
-
-  p {
-    font-family: $secondary-font-family;
-    font-style: italic;
-    font-weight: 500;
-    color: $color-text;
-
-    @include font(18, 28);
-
-    @include media(tablet) {
-      @include font(20, 30);
-    }
-  }
+  flex-direction: column;
+  flex: 1;
 }
-
-.conclusionLine {
-  width: 3px;
-  border-radius: 2px;
-  background-color: $color-terracotta;
-  flex-shrink: 0;
-}
-
-// ---------- правая часть: список ----------
 
 .list {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .item {
@@ -219,4 +194,35 @@
   @include media(tablet) {
     @include font(19, 31);
   }
+}
+
+// финальная мысль — плашка под списком
+.conclusion {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 24px 28px;
+  background-color: $color-bg-secondary;
+  border-radius: 16px;
+  border: 1px solid rgba(217, 155, 54, 0.25);
+
+  p {
+    font-family: $secondary-font-family;
+    font-style: italic;
+    font-weight: 500;
+    color: $color-text;
+
+    @include font(18, 28);
+
+    @include media(tablet) {
+      @include font(20, 30);
+    }
+  }
+}
+
+.conclusionLine {
+  width: 3px;
+  border-radius: 2px;
+  background-color: $color-terracotta;
+  flex-shrink: 0;
 }

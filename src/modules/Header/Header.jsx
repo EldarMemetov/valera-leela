@@ -9,7 +9,6 @@ import styles from "./Header.module.scss";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // блокируем скролл страницы, когда открыто мобильное меню
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -25,7 +24,11 @@ function Header() {
         <div className={styles.container}>
           <Logo />
 
-          <NavMenu className={styles.desktopNav} onLinkClick={closeMenu} />
+          <NavMenu
+            className={styles.desktopNav}
+            onLinkClick={closeMenu}
+            withBooking={false}
+          />
 
           <div className={styles.actions}>
             <ScrollButton className={styles.cta} />
@@ -54,7 +57,11 @@ function Header() {
         className={`${styles.drawer} ${isOpen ? styles.drawerOpen : ""}`}
         data-testid="mobile-menu-drawer"
       >
-        <NavMenu className={styles.drawerNav} onLinkClick={closeMenu} />
+        <NavMenu
+          className={styles.drawerNav}
+          onLinkClick={closeMenu}
+          withBooking={false}
+        />
         <ScrollButton className={styles.drawerCta} onClick={closeMenu} />
       </div>
     </>
