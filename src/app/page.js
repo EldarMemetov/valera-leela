@@ -7,13 +7,13 @@ import WhatIsLeela from "@/modules/WhatIsLeela/WhatIsLeela";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
       <About />
       <WhatIsLeela />
       <Benefits />
       <Pricing />
       <Booking />
-    </main>
+    </>
   );
 }

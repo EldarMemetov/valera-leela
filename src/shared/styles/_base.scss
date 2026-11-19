@@ -9,7 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
   --font-family: var(--font-manrope), sans-serif;
 }
-
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;

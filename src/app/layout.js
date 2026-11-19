@@ -1,7 +1,7 @@
 import Footer from "@/modules/Footer/Footer";
 import Header from "@/modules/Header/Header";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
-
+import "./globals.scss";
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
   weight: ["500", "600", "700"],
