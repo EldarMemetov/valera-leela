@@ -2,7 +2,7 @@
   background-color: $color-dark;
   color: rgba(251, 248, 243, 0.85);
   padding: 48px 0 24px;
-
+  border-top: 2px solid rgba(217, 155, 54, 0.4);
   @include media(tablet) {
     padding: 64px 0 32px;
   }
